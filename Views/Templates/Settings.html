@@ -1,0 +1,140 @@
+
+<div class=" mx-0 mt-4 container-fluid">
+    <section class="row w-100">
+        <aside class="col-2">
+            <ul class="nav nav-tabs flex-column">
+                <li class="nav-item pt-1">
+                    <a href="/" class="nav-link">
+                        <i class="fas fa-home mx-2"></i>
+                        Home Feed
+                    </a>
+                </li>
+                <li class="nav-item pt-1">
+                    <a href="/profile/$session['user']['username']" class="nav-link">
+                        <i class="fas fa-user-circle mx-2"></i>
+                        Profile
+                    </a>
+                </li>
+                <li class="nav-item pt-1">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-envelope mx-2"></i>
+                        Messages
+                    </a>
+                </li>
+                <li class="nav-item pt-1">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-users mx-2"></i>
+                        Friends
+                    </a>
+                </li>
+                <li class="nav-item pt-1">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-comments mx-2"></i>
+                        Communities
+                    </a>
+                </li>
+                <li class="nav-item pt-1">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-bell mx-2"></i>
+                        Notification
+                    </a>
+                </li>
+            </ul>
+            <div class="h-divider my-4 bg-secondary" style="height: 1px;">
+            </div>
+            <ul class="nav nav-tabs flex-column">
+                <li class="nav-item pt-1">
+                    <a href="/settings" class="nav-link">
+                        <i class="fas fa-cogs mx-2"></i>
+                        Settings
+                    </a>
+                </li>
+                <li class="nav-item pt-1">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-question-circle mx-2"></i>
+                        Help
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <article class="container col-8 mx-auto">
+            <div class="jumbotron text-center w-100" style="margin-bottom:0">
+                <h1>My First Bootstrap 4 Page</h1>
+                <p>Resize this responsive page to see the effect!</p> 
+            </div>
+                            
+            <div class="container" style="margin-top:30px">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$session['user']['username']">Activity</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$session['user']['username']/info">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$session['user']['username']/code">Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$session['user']['username']/contact">Contact</a>
+                    </li>   
+                </ul>
+            </div>
+
+            <div class="container" style="margin-top:30px">
+                <div class="container-fluid row">
+                    <div class="card col-6 px-2 py-3">
+                        <form id="settings-form">
+                            <h2 class="font-weight-bolder">Basic Information</h2>
+                            <span>Name</span>
+                            <p><input type="text" name="name" class="form-control no-border" value="$session['user']['name']" /></p>
+                            <span>About</span>
+                            <p><textarea name="about" class="form-control no-border">
+                                $session['user']['about']
+                            </textarea></p>
+                            <span>Hobbies</span>
+                            <p><input type="text" name="hobbies" class="form-control no-border" value="$session['user']['hobbies']" /></p>
+                            <span>Birthday</span>
+                            <p><input type="text" name="birthday" class="form-control no-border" value="$session['user']['birthday']" /></p>
+                            <button type="submit" class="btn btn-info btn-raised">Save</button>
+                        </form>
+                    </div>
+                    <div class="container col-6">
+                        <div class="card">
+                            <div class="card-header font-weight-bolder">
+                                Basic Information
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">About</h5>
+                                <p class="card-text">$session['user']['about']</p>
+                                <h5 class="card-title font-weight-bold">Hobbies</h5>
+                                <p class="card-text">$session['user']['hobbies']</p>
+                                <h5 class="card-title font-weight-bold">Birthday</h5>
+                                <p class="card-text">$session['user']['birthday']</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header font-weight-bolder">
+                                Image Section
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title font-weight-bold">Avatar</h5>
+                                <form id="avatar-upload" action="/upload-image/avatar" enctype="multipart/form-data" method="POST">
+                                    <input type="file" name="avatar"/>
+                                    <button type="submit" class="btn btn-info btn-raised">Save</button>
+                                </form>
+                                <h5 class="card-title font-weight-bold">Background</h5>
+                                <form id="background-upload" action="/upload-image/background" enctype="multipart/form-data" method="POST">
+                                    <input type="file" name="background"/>
+                                    <button type="submit" class="btn btn-info btn-raised">Save</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <p>Footer</p>
+      </div>
+</div>

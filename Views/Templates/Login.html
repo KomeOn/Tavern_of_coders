@@ -1,0 +1,55 @@
+$def with (images)
+
+<div class="container w-50">
+    <div class="card mt-5 mx-auto">
+        <div class="card-header text-center font-weight-bolder">
+            <h2>Account Login</h2>
+        </div>
+        <div class="card-body">
+            <form id="login-form">
+                <div class="imgcontainer">
+                    <img src="$images['avatar']" alt="Avatar" class="avatar">
+                </div>
+                <div class="form-group label-static is-empty">
+                    <label for="username" class="control-label">Username</label>
+                    <input id="username" name="username" class="form-control" type="text" placeholder="Enter Username"/>
+                </div>
+        
+                <div class="form-group label-static is-empty">
+                    <label for="password" class="control-label">Password</label>
+                    <input id="password" name="password" class="form-control" type="password" placeholder="Enter your password"/>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="FieldsetCheck">
+                        <label class="form-check-label" for="FieldsetCheck">
+                          Remember me?
+                        </label>
+                      </div>
+                      <div class="form-group ml-auto" style="text-decoration: none;">
+                        Forget 
+                        <a href="/forget/password">
+                            Password?
+                        </a>
+                        /
+                        <a href="/forget/username">
+                            Username?
+                        </a>
+                    </div>
+                </div>
+
+                <div class="form-group text-center" style="text-decoration: none;">
+                    Not a user?
+                    <a href="/register">
+                        Register here
+                    </a>
+                </div>
+                
+                
+                <button type="submit" class="btn btn-raised btn-info waves-effect ripple">Login <div class="ripple-container"></div></button>
+            </form>
+        </div>
+    </div>
+    
+</div>
