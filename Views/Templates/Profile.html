@@ -1,71 +1,11 @@
 $def with (posts, user_info)
 
 <div class="container-fluid w-100 px-0">
-    <section class="row w-100" style="min-height: 1100px;">
-        <nav class="w-100 p-0 m-0 pt-2 col-2 bg-dark ">
-            <!-- Links -->
-            <div class="navbar bg-light p-0 bg-dark">
-                <ul class="nav nav-tabs flex-column w-100">
-                    <li class="nav-item p-0 btn-outline-secondary">
-                        <a href="/" class="nav-link text-white" style="border-style: none;">
-                            <i class="fas fa-home mx-2"></i>
-                            Home Feed
-                        </a>
-                    </li>
-                    <li class="nav-item p-0 btn-outline-secondary">
-                        <a href="/profile/$session['user']['username']" class="nav-link text-white" style="border-style: none;">
-                            <i class="fas fa-user-circle mx-2"></i>
-                            Profile
-                        </a>
-                    </li>
-                    <li class="nav-item p-0 btn-outline-secondary">
-                        <a href="#" class="nav-link text-white" style="border-style: none;">
-                            <i class="fas fa-envelope mx-2"></i>
-                            Messages
-                        </a>
-                    </li>
-                    <li class="nav-item p-0 btn-outline-secondary">
-                        <a href="#" class="nav-link text-white" style="border-style: none;">
-                            <i class="fas fa-users mx-2"></i>
-                            Friends
-                        </a>
-                    </li>
-                    <li class="nav-item p-0 btn-outline-secondary">
-                        <a href="#" class="nav-link text-white" style="border-style: none;">
-                            <i class="fas fa-comments mx-2"></i>
-                            Communities
-                        </a>
-                    </li>
-                    <li class="nav-item p-0 btn-outline-secondary">
-                        <a href="#" class="nav-link text-white" style="border-style: none;">
-                            <i class="fas fa-bell mx-2"></i>
-                            Notification
-                        </a>
-                    </li>
-                </ul>
-                <div class="h-divider my-4 bg-secondary w-100" style="height: 1px;">
-                </div>
-                <ul class="nav nav-tabs flex-column w-100">
-                    <li class="nav-item  p-0 btn-outline-secondary">
-                        <a href="/settings" class="nav-link text-white" style="border-style: none;">
-                            <i class="fas fa-cogs mx-2"></i>
-                            Settings
-                        </a>
-                    </li>
-                    <li class="nav-item p-0 btn-outline-secondary">
-                        <a href="#" class="nav-link text-white" style="border-style: none;">
-                            <i class="fas fa-question-circle mx-2"></i>
-                            Help
-                        </a>
-                    </li>
-                </ul>
-            </div>
-          
-        </nav>
-        <article class="container col-8 mx-auto mb-2">
-            <div class="jumbotron w-100 mb-0 p-0 position-relative text-center">
+    <section class="w-100" style="min-height: 1600px;">
+        <div class="container mx-auto mb-2">
+            <div class="jumbotron w-100 mb-0 p-0 position-relative text-center" style="height: 500px;">
                 <img src="$user_info['background']" alt="..." class="w-100 h-100">
-                <img src="$user_info['avatar']" alt="..." class="avatar-xl" style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                <img src="$user_info['avatar']" alt="..." class="avatar-xl img-fluid rounded-circle border-dark" style="top: 60%; left: 50%; transform: translate(-50%, -50%);">
                 <p class="position-absolute font-weight-bolder text-white" style="top: 90%; left: 50%; transform: translate(-50%, -50%); font-style: italic">
                     $user_info['name']
                 </p>
@@ -76,94 +16,186 @@ $def with (posts, user_info)
                         <a class="nav-link active" href="/profile/$user_info['username']">Activity</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/profile/$user_info['username']/info">Info</a>
+                        <a class="nav-link" href="/profile/$user_info['username']/about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#code">Code</a>
+                        <a class="nav-link" href="/profile/$user_info['username']/friend">Friends</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>     
+                        <a class="nav-link" href="/profile/$user_info['username']/photo">Photos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$user_info['username']/blog">Blogs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$user_info['username']/code">Codes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$user_info['username']/contact">Contact</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile/$user_info['username']/community">Communities</a>
+                    </li>
                 </ul>
-                <div class="container" id="activity">
-                    $for post in posts: 
-                    <div class="container mt-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="d-flex m-2 card-title">
-                                    <img src="$session['user']['avatar']" alt="..." class="avatar-sm img-fluid rounded-circle border-dark ">
-                                    <h6 style="vertical-align: middle;" class="mx-2">$post['user']['name']</h6>
-                                    <span class="timestamp card-subtitle text-muted">
-                                        <small class="align-middle">$post['timestamp']</small>
-                                    </span>
-                                </div>  
+            </div>
+        </div>
+        <div class="container-fluid m-0 px-2 py-0" >
+            <div class="row" style="min-height: 1040px;">
+                <div class="col-3 pb-3">
+                    <div class="container mb-2 h-33">
+                        <div class="card h-100">
+                            <div class="card-header">Intro</div>
+                            <div class="card-body text-center">
+                                <span class="align-midle font-weight-bolder text-monospace">
+                                    Nothing to show
+                                </span>
                             </div>
-                            <div class="card-body pl-1 pt-0 py-1">
-                                <div class="post_blog">    
-                                    <div class="content my-3 pl-3">
-                                        $post['content']
-                                    </div>
-                                    <div class="w-100 border-top border-bottom btn-group" role="group">
-                                        <button type="button" class="btn btn-outline-secondary w-25">
-                                            <i class="far fa-thumbs-up mx-2 pr-1">
-                                                Like
-                                            </i>
-                                        </button>
-                                        <button type="button" class="btn btn-outline-secondary w-25">
-                                            <i class="far fa-heart mx-2 pr-1">
-                                                Love
-                                            </i>
-                                        </button>
-                                        <button type="button" class="btn btn-outline-secondary w-25">
-                                            <i class="far fa-comment mx-2 pr-1">
-                                                Comment
-                                            </i>
-                                        </button>
-                                        <button type="button" class="btn btn-outline-secondary w-25">
-                                            <i class="fas fa-share-alt mx-2 pr-1">
-                                                Share
-                                            </i>
-                                        </button>
+                        </div>
+                    </div>
+                    <div class="container mb-2 h-33">
+                        <div class="card h-100">
+                            <div class="card-header">Friend List</div>
+                            <div class="card-body text-center">
+                                <span class="align-midle font-weight-bolder text-monospace">
+                                    Nothing to show
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container mb-2 h-33">
+                        <div class="card h-100">
+                            <div class="card-header">Photos</div>
+                            <div class="card-body text-center">
+                                <span class="align-midle font-weight-bolder text-monospace">
+                                    Nothing to show
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="container" id="activity">
+                        $for post in posts: 
+                        <div class="container mt-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="d-flex m-2 card-title">
+                                        <img src="$session['user']['avatar']" alt="..." class="avatar-sm img-fluid rounded-circle border-dark ">
+                                        <h6 style="vertical-align: middle;" class="mx-2">$post['user']['name']</h6>
+                                        <span class="timestamp card-subtitle text-muted">
+                                            <small class="align-middle">$post['timestamp']</small>
+                                        </span>
+                                    </div>  
+                                </div>
+                                <div class="card-body pl-1 pt-0 py-1">
+                                    <div class="post_blog">    
+                                        <div class="content my-3 pl-3">
+                                            $post['content']
+                                        </div>
+                                        <div class="w-100 border-top border-bottom btn-group" role="group">
+                                            <button type="button" class="btn btn-outline-secondary w-25">
+                                                <i class="far fa-thumbs-up mx-2 pr-1">
+                                                    Like
+                                                </i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary w-25">
+                                                <i class="far fa-heart mx-2 pr-1">
+                                                    Love
+                                                </i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary w-25">
+                                                <i class="far fa-comment mx-2 pr-1">
+                                                    Comment
+                                                </i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary w-25">
+                                                <i class="fas fa-share-alt mx-2 pr-1">
+                                                    Share
+                                                </i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-footer p-0 text-muted text-white">
-                                <div class="comment-add">
-                                    $for comment in post['comments']:
-                                        <div class="comment py-2">
-                                            <div class="header">
-                                                <div class="d-flex m-2 card-title">
-                                                    <img src="$session['user']['avatar']" alt="..." class="avatar-sm img-fluid rounded-circle border-dark ">
-                                                    <h6 style="vertical-align: middle;" class="mx-2">$comment['user']['name']</h6>
-                                                    <span class="timestamp card-subtitle text-muted">
-                                                        <small class="align-middle">$comment['timestamp']</small>
-                                                    </span>
-                                                </div> 
-                                                <div class="container p-0 border rounded border-dark ml-5 my-2 " style="width: 660px;">
-                                                    <p class="comment-content pl-3 text-dark">$comment['comment-text']</p> 
+                                <div class="card-footer p-0 text-muted text-white">
+                                    <div class="comment-add">
+                                        $for comment in post['comments']:
+                                            <div class="comment py-2">
+                                                <div class="header">
+                                                    <div class="d-flex m-2 card-title">
+                                                        <img src="$session['user']['avatar']" alt="..." class="avatar-sm img-fluid rounded-circle border-dark ">
+                                                        <h6 style="vertical-align: middle;" class="mx-2">$comment['user']['name']</h6>
+                                                        <span class="timestamp card-subtitle text-muted">
+                                                            <small class="align-middle">$comment['timestamp']</small>
+                                                        </span>
+                                                    </div> 
+                                                    <div class="container p-0 border rounded border-dark ml-5 my-2 " style="width: 660px;">
+                                                        <p class="comment-content pl-3 text-dark">$comment['comment-text']</p> 
+                                                    </div>
                                                 </div>
                                             </div>
+                                        <div class="header">
+                                            <div class="d-flex m-2 card-title">
+                                                <img src="$session['user']['avatar']" alt="..." class="avatar-sm img-fluid rounded-circle border-dark ">
+                                                <h6 style="vertical-align: middle;" class="mx-2">$session['user']['name']</h6>
+                                            </div> 
+                                            <form class="comment-form">
+                                                <input name="post_id" hidden value="$post['_id']" />
+                                                <textarea name="comment-text" placeholder="Write a comment" class="mx-3 my-2" style="width: 558px;"></textarea>
+                                                <button type="submit" class="btn btn-info btn-raised ml-3 mb-2">Add comment</button>
+                                            </form>
                                         </div>
-                                    <div class="header">
-                                        <div class="d-flex m-2 card-title">
-                                            <img src="$session['user']['avatar']" alt="..." class="avatar-sm img-fluid rounded-circle border-dark ">
-                                            <h6 style="vertical-align: middle;" class="mx-2">$session['user']['name']</h6>
-                                        </div> 
-                                        <form class="comment-form">
-                                            <input name="post_id" hidden value="$post['_id']" />
-                                            <textarea name="comment-text" placeholder="Write a comment" class="mx-3 my-2" style="width: 700px;"></textarea>
-                                            <button type="submit" class="btn btn-info btn-raised ml-3 mb-2">Add comment</button>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-3 pb-3">
+                    <div class="container mb-2 h-25">
+                        <div class="card h-100">
+                            <div class="card-header">Blog Notifications</div>
+                            <div class="card-body text-center">
+                                <span class="align-midle font-weight-bolder text-monospace">
+                                    Nothing to show
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container mb-2 h-25">
+                        <div class="card h-100">
+                            <div class="card-header">Code Notifications</div>
+                            <div class="card-body text-center">
+                                <span class="align-midle font-weight-bolder text-monospace">
+                                    Nothing to show
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container mb-2 h-25">
+                        <div class="card h-100">
+                            <div class="card-header">Linked Communities</div>
+                            <div class="card-body text-center">
+                                <span class="align-midle font-weight-bolder text-monospace">
+                                    Nothing to show
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container mb-2 h-25">
+                        <div class="card h-100">
+                            <div class="card-header">Alerts</div>
+                            <div class="card-body text-center">
+                                <span class="align-midle font-weight-bolder text-monospace">
+                                    Nothing to show
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </article>
+        </div>
     </section>
-    <footer class="container-fluid m-0 bg-dark p-5" id="mainFooter">
+    <footer class="container-fluid m-0 bg-dark p-5 " id="mainFooter">
         <div class="row px-5">
             <div class="col-3 pl-5 pr-2">
                 <h6 class="font-weight-bolder">

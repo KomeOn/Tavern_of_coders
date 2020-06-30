@@ -108,4 +108,32 @@ $(document).ready(function(){
 
 });
 
-        
+# Html code
+<div class="my-3" id="info">
+                <div class="card-deck">
+                    <div class="card px-0">
+                        <div class="card-header font-weight-bolder">
+                            Basic Information
+                            </div>
+                        <div class="card-body">
+                            <h5 class="card-title font-weight-bold">About</h5>
+                            <p class="card-text">$user_info['about']</p>
+                            <h5 class="card-title font-weight-bold">Hobbies</h5>
+                            <p class="card-text">$user_info['hobbies']</p>
+                            <h5 class="card-title font-weight-bold">Birthday</h5>
+                            <p class="card-text">$user_info['birthday']</p>
+                        </div>
+                    </div>
+                    <div class="card px-0">
+                        <div class="card-header font-weight-bolder">
+                            Professional
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title font-weight-bold">Company XYZ (2016-2019)</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <h5 class="card-title font-weight-bold">Company ABC (2012-2016)</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                    </div>
+                </div> 
+            </div>

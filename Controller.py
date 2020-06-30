@@ -5,7 +5,7 @@ import os
 web.config.debug = False
 
 urls = (
-    '/profile/(.*)/info', 'UserInfo',
+    '/profile/(.*)/about', 'UserAbout',
     '/profile/(.*)', 'UserProfile',
     '/update-settings', 'UpdateSettings',
     '/settings', 'UserSettings',
@@ -118,12 +118,12 @@ class PostActivity:
 
         return 'success'
 
-class UserInfo:
+class UserAbout:
     def GET(self, user):
         login = LoginModel.LoginModel()
         user_info = login.get_profile(user)
         
-        return render.Info(user_info)
+        return render.About(user_info)
 
 class SubmitComment:
     def POST(self):

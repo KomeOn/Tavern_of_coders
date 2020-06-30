@@ -25,9 +25,17 @@ a {
 }
 
 .avatar-xl{
-  width: 320px;
-  height: 320px; 
+  width: 270px;
+  height: 270px; 
   position: absolute; 
+}
+
+.h-33{
+  height: 33% !important;
+}
+
+.w-33{
+  width: 33% !important;
 }
 
 
