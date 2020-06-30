@@ -1,28 +1,9 @@
 $def with (posts)
-<head>
-    <style>
-        .avatar-sm{
-            width: 40px;
-            height: 40px; 
-            }
 
-        .avatar-md{
-            width: 80px;
-            height: 80px; 
-            position: absolute;
-            }
-
-        .avatar-lg{
-            width: 120px;
-            height: 120px; 
-            position: absolute; 
-            }
-    </style>
-</head>
 <div class="container-fluid  px-0">
     $if session['user'] != None:
-        <div id="main-body w-100" class="mx-0">
-            <section class="row d-flex">
+        <div id="main-body" class="mx-0 w-100">
+            <section class="row d-flex" style="min-height: 1100px;">
                 <nav class="w-100 p-0 m-0 col-2 bg-dark ">
                     <div class="w-100">
                         <div class="w-100" style="height: 200px;">
@@ -88,7 +69,6 @@ $def with (posts)
                             </li>
                         </ul>
                     </div>
-                  
                 </nav>
                 <article class="col-7 mb-2">
                     <div class="container-fluid px-3">

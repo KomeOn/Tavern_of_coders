@@ -31,7 +31,7 @@ render = web.template.render("Views/Templates", base="MainLayout",
 # Classes/Routes
 
 class Home:
-    def GET(self):
+    def GET(self):   
         post_model = Posts.Posts()
         posts = post_model.get_all_posts()
 

@@ -16,7 +16,6 @@ $(document).ready(function(){
 
     $(document).on("submit", "#login-form", function(e){
         e.preventDefault();
-        document.getElementById("mainFooter").style.display = "none";
         var form = $(this).serialize();
         $.ajax({
             url: '/check-login',
@@ -37,7 +36,6 @@ $(document).ready(function(){
     $(document).on("submit", "#post-activity", function(e){
         e.preventDefault();
         var form = $(this).serialize();
-        console.log(form)
         $.ajax({
             url: '/post-activity',
             type: 'POST',
