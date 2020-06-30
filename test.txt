@@ -6,7 +6,10 @@
 
 
 scripty.js code
-$(document).on("submit", "#register-form", function(e){
+$(document).ready(function(){
+    console.log("loaded");
+    
+    $(document).on("submit", "#register-form", function(e){
         e.preventDefault();
         var form = $('#register-form').serialize();
         $.ajax({
@@ -21,7 +24,6 @@ $(document).on("submit", "#register-form", function(e){
 
     $(document).on("submit", "#login-form", function(e){
         e.preventDefault();
-        document.getElementById("mainFooter").style.display = "none";
         var form = $(this).serialize();
         $.ajax({
             url: '/check-login',
@@ -103,3 +105,7 @@ $(document).on("submit", "#register-form", function(e){
             }
         });
     });
+
+});
+
+        
