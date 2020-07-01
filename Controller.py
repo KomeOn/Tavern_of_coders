@@ -1,16 +1,26 @@
 import web
-from Models import RegisterModel, LoginModel, Posts
+from Models import RegisterModel, LoginModel, Posts, Admin, PreLoader
 import os
 
 web.config.debug = False
 
 urls = (
+    '/admin/image/(.*)', "AdminImage",
+    '/admin/event/(.*)', "AdminEvent",
+    '/admin/login', "AdminLogin",
+    '/admin/checl-login', "AdminCheck",
+    '/admin/register', "AdminRegistration",
+    '/admin/post-register', "AdminPost",
+
+    '/profile/(.*)/community', 'UserCommunity',
+    '/profile/(.*)/contact', 'UserContact',
     '/profile/(.*)/code', 'UserCode',
     '/profile/(.*)/blog', 'UserBlog',
     '/profile/(.*)/photo', 'UserPhoto',
     '/profile/(.*)/friend', 'UserFriend',
     '/profile/(.*)/about', 'UserAbout',
     '/profile/(.*)', 'UserProfile',
+
     '/update-settings', 'UpdateSettings',
     '/settings', 'UserSettings',
     '/register', 'Register',
@@ -32,6 +42,12 @@ render = web.template.render("Views/Templates", base="MainLayout",
                              globals={'session': session_data, 'current_user': session_data['user']})
 
 
+def notfound():
+    #return web.notfound("Sorry, the page you were looking for was not found.")
+    return web.notfound(render.NotFound())
+
+app.notfound = notfound
+
 # Classes/Routes
 
 class Home:
@@ -40,7 +56,6 @@ class Home:
         posts = post_model.get_all_posts()
 
         return render.Home(posts)
-
 
 class UserProfile:
     def GET(self, user):
@@ -52,11 +67,9 @@ class UserProfile:
 
         return render.Profile(posts, user_info)
 
-
 class UserSettings:
     def GET(self):
         return render.Settings()
-
 
 class UpdateSettings:
     def POST(self):
@@ -69,18 +82,14 @@ class UpdateSettings:
         else:
             return 'Fatal error'
 
-
 class Register:
     def GET(self):
         return render.Register()
 
-
 class Login:
     def GET(self):
-        log = LoginModel.LoginModel()
-        images = log.get_image("login")
-        return render.Login(images)
-
+        
+        return render.Login()
 
 class PostRegistration:
     def POST(self):
@@ -89,7 +98,6 @@ class PostRegistration:
         reg_model = RegisterModel.RegisterModel()
         reg_model.insert_user(data)
         return data
-
 
 class CheckLogin:
     def POST(self):
@@ -102,7 +110,6 @@ class CheckLogin:
             return isCorrect
 
         return "error"
-
 
 class Logout:
     def GET(self):
@@ -196,9 +203,15 @@ class UserCode:
 
         return render.Code(user_info)
 
+class UserContact:
+    def GET(self, user):
+        raise web.notfound()
 
-'''
-class UploadImage:
+class UserCommunity:
+    def GET(self, user):
+        raise web.notfound()
+
+class AdminImage:
     def POST(self, categor):
         file = web.input(login={}, register={})
         file_dir = os.getcwd() + '/source/images/' + categor 
@@ -220,8 +233,45 @@ class UploadImage:
         update['username'] = session_data['user']['username']
 
         account_model = LoginModel.LoginModel()
-        update_img = account_model.update_image(update)'''
+        update_img = account_model.update_image(update)
 
+class AdminEvent:
+    def POST(self, typ):
+        if typ == 'event':
+            pass
+        elif typ == 'blog':
+            pass
+        elif typ == 'post':
+            pass
+        elif typ == 'notice':
+            pass
+class AdminLogin:
+    def GET(self):
+        return render.AdminLogin()
+
+class AdminCheck:
+    def POST(self):
+        data = web.input()
+        login = Admin.AdminModel()
+        isCorrect = login.check_user(data)
+
+        if isCorrect:
+            session_data['user'] = isCorrect
+            return isCorrect
+
+        return "error"
+
+class AdminRegistration:
+    def GET(self):
+        return render.AdminRegister()
+
+class AdminPost:
+    def POST(self):
+        data = web.input()
+        print("data:", data)
+        reg_model = Admin.AdminModel()
+        reg_model.insert_user(data)
+        return data
 
 if __name__ == "__main__":
     app.run()

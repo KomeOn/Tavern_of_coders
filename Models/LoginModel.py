@@ -36,16 +36,7 @@ class LoginModel:
 
     def update_image(self, update):
         updated = self.Users.update_one({'username': update['username']}, {'$set': {update["type"]: update['img']}})
-        #updated = self.Images.insert({'used_on': update['type'], 'restrict_img': {'avatar': update['img'], 'background': '', 'other': ''}, 
-        #                              'public_img': {'avatar': '', 'background': '', 'other': ''}, 'by': update['username'], 'date_added': datetime.datetime.now()})
+    
         return updated
 
-    def get_image(self, catergor):
-        if catergor == "login":
-            img = self.Images.find({'used_on': catergor})
-            dict_img = {}
-
-            for i in img:
-                dict_img = i['restrict_img']
-            
-            return dict_img
+    
