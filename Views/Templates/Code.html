@@ -1,6 +1,6 @@
 $def with (user_info)
 
-<div class="mx-0 container-fluid mt-6 px-0">
+<div class="container-fluid w-100 mt-6 px-0">
     <section class="w-100" style="min-height: 1600px;">
         <div class="container mx-auto mb-2">
             <div class="jumbotron w-100 mb-0 p-0 position-relative text-center" style="height: 500px;">
@@ -16,7 +16,7 @@ $def with (user_info)
                         <a class="nav-link" href="/profile/$user_info['username']">Activity</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/profile/$user_info['username']/about">About</a>
+                        <a class="nav-link" href="/profile/$user_info['username']/about">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/profile/$user_info['username']/friend">Friends</a>
@@ -28,33 +28,23 @@ $def with (user_info)
                         <a class="nav-link" href="/profile/$user_info['username']/blog">Blogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/profile/$user_info['username']/code">Codes</a>
+                        <a class="nav-link active" href="/profile/$user_info['username']/code">Codes</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/profile/$user_info['username']/contact">Contact</a>
                     </li> 
                     <li class="nav-item">
                         <a class="nav-link" href="/profile/$user_info['username']/community">Communities</a>
-                    </li>   
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="container-fluid m-0 px-2 py-0">
+        <div class="container-fluid m-0 px-2 py-0" >
             <div class="row" style="min-height: 1040px;">
-                <div class="col-3 pb-3">
-                    <div class="container mb-2 h-50">
-                        <div class="card h-100">
-                            <div class="card-header">Personal Info</div>
-                            <div class="card-body text-center">
-                                <span class="align-midle font-weight-bolder text-monospace">
-                                    Nothing to show
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container mb-2 h-50">
-                        <div class="card h-100">
-                            <div class="card-header">Relation</div>
+                <div class="col-6 pb-3 h-100">
+                    <div class="container mb-2 h-100 w-100 px-0">
+                        <div class="card h-100" style="min-height: 1040px;">
+                            <div class="card-header">Codes Shared With You</div>
                             <div class="card-body text-center">
                                 <span class="align-midle font-weight-bolder text-monospace">
                                     Nothing to show
@@ -63,52 +53,16 @@ $def with (user_info)
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="my-3" id="info">
-                        <div class="card px-0 mb-3">
-                            <div class="card-header font-weight-bolder">
-                                Basic Information
+                <div class="col-6 pb-3 h-100">
+                    <div class="container px-0" id="activity">
+                        <div class="container mb-2 h-100 w-100">
+                            <div class="card h-100" style="min-height: 1040px;">
+                                <div class="card-header">Codes Shared By You</div>
+                                <div class="card-body text-center">
+                                    <span class="align-midle font-weight-bolder text-monospace">
+                                        Nothing to show
+                                    </span>
                                 </div>
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bold">About</h5>
-                                <p class="card-text">$user_info['about']</p>
-                                <h5 class="card-title font-weight-bold">Hobbies</h5>
-                                <p class="card-text">$user_info['hobbies']</p>
-                                <h5 class="card-title font-weight-bold">Birthday</h5>
-                                <p class="card-text">$user_info['birthday']</p>
-                            </div>
-                        </div>
-                        <div class="card px-0 mb-3">
-                            <div class="card-header font-weight-bolder">
-                                Professional
-                                </div>
-                            <div class="card-body">
-                                <h5 class="card-title font-weight-bold">Company XYZ (2016-2019)</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <h5 class="card-title font-weight-bold">Company ABC (2012-2016)</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-3 pb-3">
-                    <div class="container mb-2 h-50">
-                        <div class="card h-100">
-                            <div class="card-header">Professional Space</div>
-                            <div class="card-body text-center">
-                                <span class="align-midle font-weight-bolder text-monospace">
-                                    Nothing to show
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container mb-2 h-50">
-                        <div class="card h-100">
-                            <div class="card-header">Achievements</div>
-                            <div class="card-body text-center">
-                                <span class="align-midle font-weight-bolder text-monospace">
-                                    Nothing to show
-                                </span>
                             </div>
                         </div>
                     </div>
@@ -116,7 +70,7 @@ $def with (user_info)
             </div>
         </div>
     </section>
-    <footer class="container-fluid m-0 bg-dark p-5" id="mainFooter">
+    <footer class="container-fluid m-0 bg-dark p-5 " id="mainFooter">
         <div class="row px-5">
             <div class="col-3 pl-5 pr-2">
                 <h6 class="font-weight-bolder">

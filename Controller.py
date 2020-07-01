@@ -5,6 +5,10 @@ import os
 web.config.debug = False
 
 urls = (
+    '/profile/(.*)/code', 'UserCode',
+    '/profile/(.*)/blog', 'UserBlog',
+    '/profile/(.*)/photo', 'UserPhoto',
+    '/profile/(.*)/friend', 'UserFriend',
     '/profile/(.*)/about', 'UserAbout',
     '/profile/(.*)', 'UserProfile',
     '/update-settings', 'UpdateSettings',
@@ -164,7 +168,37 @@ class UploadImage:
 
         raise web.seeother("/settings")
 
-'''class UploadImage:
+class UserFriend:
+    def GET(self, user):
+        login = LoginModel.LoginModel()
+        user_info = login.get_profile(user)
+
+        return render.Friend(user_info)
+
+class UserPhoto:
+    def GET(self, user):
+        login = LoginModel.LoginModel()
+        user_info = login.get_profile(user)
+
+        return render.Photo(user_info)
+
+class UserBlog:
+    def GET(self, user):
+        login = LoginModel.LoginModel()
+        user_info = login.get_profile(user)
+
+        return render.Blog(user_info)
+
+class UserCode:
+    def GET(self, user):
+        login = LoginModel.LoginModel()
+        user_info = login.get_profile(user)
+
+        return render.Code(user_info)
+
+
+'''
+class UploadImage:
     def POST(self, categor):
         file = web.input(login={}, register={})
         file_dir = os.getcwd() + '/source/images/' + categor 
